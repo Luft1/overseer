@@ -1,18 +1,10 @@
-/**
- * @file      main.cpp
- * @author    Lewis He (lewishe@outlook.com)
- * @license   MIT
- * @copyright Copyright (c) 2025  ShenZhen XinYuan Electronic Technology Co., Ltd
- * @date      2025-05-15
- *
- */
 #include <LilyGoLib.h>
 #include <LV_Helper.h>
 
-static void btn_event_cb(lv_event_t *e)
+static void btn_event_cb(lv_event_t *event)
 {
-    lv_event_code_t code = lv_event_get_code(e);
-    lv_obj_t *btn = lv_event_get_target_obj(e);
+    lv_event_code_t code = lv_event_get_code(event);
+    lv_obj_t *btn = lv_event_get_target_obj(event);
     if (code == LV_EVENT_CLICKED) {
         static uint8_t cnt = 0;
         cnt++;
@@ -61,20 +53,3 @@ void loop()
     lv_timer_handler();
     delay(2);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
