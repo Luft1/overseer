@@ -4,14 +4,14 @@
 // Event handler for swap buttons
 
 void SplitKeyboard::Toggle() {
-    if (currentState == KeyboardState::Hidden) {
+    if (currentState == SplitKeyboardState::Hidden) {
         ShowObject(keyboardLeft);
         HideObject(keyboardRight);
-        currentState = KeyboardState::Left; // Default to left side
+        currentState = SplitKeyboardState::Left; // Default to left side
     } else {
         HideObject(keyboardLeft);
         HideObject(keyboardRight);
-        currentState = KeyboardState::Hidden;
+        currentState = SplitKeyboardState::Hidden;
     }
 };
 
@@ -19,8 +19,7 @@ static void OnKeyPressed(lv_event_t * event) {
     lv_obj_t * buttonMatrix = static_cast<lv_obj_t*>(lv_event_get_target(event));
     const char * label = lv_buttonmatrix_get_button_text(buttonMatrix, lv_buttonmatrix_get_selected_button(buttonMatrix));
     if (label && label[0] != '\0') {
-        SplitKeyboard * keyboard = static_cast<SplitKeyboard*>(lv_event_get_user_data(event));
-        keyboard->getDispatcher().dispatch(Event::KeyPressed, label[0]);
+        eventDispatcher->dispatch(Event::KeyPressed, label[0]);
     }
 };
 
@@ -58,7 +57,7 @@ SplitKeyboard::SplitKeyboard()
     HideObject(keyboardLeft);
     HideObject(keyboardRight);
 
-    currentState = KeyboardState::Hidden;
+    currentState = SplitKeyboardState::Hidden;
 };
 
 void SplitKeyboard::Destroy()
@@ -71,15 +70,15 @@ void SplitKeyboard::Destroy()
 void SplitKeyboard::swapSide()
 {
     switch(currentState) {
-        case KeyboardState::Left:
+        case SplitKeyboardState::Left:
             HideObject(keyboardLeft);
             ShowObject(keyboardRight);
-            currentState = KeyboardState::Right;
+            currentState = SplitKeyboardState::Right;
             break;
-        case KeyboardState::Right:
+        case SplitKeyboardState::Right:
             HideObject(keyboardRight);
             ShowObject(keyboardLeft);
-            currentState = KeyboardState::Left;
+            currentState = SplitKeyboardState::Left;
             break;
         default:
             break;

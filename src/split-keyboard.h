@@ -3,7 +3,7 @@
 #include <eventpp/hetereventdispatcher.h>
 #include "Events.h"
 
-enum class KeyboardState {
+enum class SplitKeyboardState {
     Left,
     Right,
     Hidden
@@ -11,21 +11,16 @@ enum class KeyboardState {
 
 class SplitKeyboard {
 public:
-    using KeyboardEventDispatcher = eventpp::HeterEventDispatcher<Event, void(char)>;
     SplitKeyboard();
     void Destroy();
-    KeyboardEventDispatcher& getDispatcher() {
-        return keyboardEventDispatcher;
-    };
     void Toggle();
 
 private:
     void swapSide();
     //void swapSideButtonPressed(lv_event_t*);
-    KeyboardState currentState;
+    SplitKeyboardState currentState;
     lv_obj_t * keyboardLeft;
     lv_obj_t * keyboardRight;
     lv_obj_t * swapSideButtonLeft;
     lv_obj_t * swapSideButtonRight;
-    KeyboardEventDispatcher keyboardEventDispatcher;
 };

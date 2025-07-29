@@ -20,7 +20,7 @@ Main::Main() {
         keyboard->Toggle();
     }, LV_EVENT_CLICKED, this->keyboard);
 
-    eventDispatcher.appendListener(Event::KeyPressed, [this](char key) { handleKeyPress(key); });
+    eventDispatcher->appendListener(Event::KeyPressed, [this](char key) { handleKeyPress(key); });
 }
 
 void Main::loop() {

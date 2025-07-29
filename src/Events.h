@@ -8,4 +8,4 @@ enum class Event {
 };
 
 using EventDispatcher = eventpp::HeterEventDispatcher<Event, void(char), void>;
-inline EventDispatcher eventDispatcher;
+inline EventDispatcher * eventDispatcher = new eventpp::HeterEventDispatcher<Event, void(char), void>();
