@@ -22,7 +22,7 @@ public:
 private:
     void swapSide();
     //void swapSideButtonPressed(lv_event_t*);
-    KeyboardState * currentState;
+    KeyboardState currentState;
     lv_obj_t * keyboardLeft;
     lv_obj_t * keyboardRight;
     lv_obj_t * swapSideButtonLeft;
