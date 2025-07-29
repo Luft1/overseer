@@ -1,5 +1,7 @@
 #include "main.h"
 
+//TODO: use a simple callback function pointer instead of eventpp
+
 Main::Main() {
 
     keyboard = new SplitKeyboard();

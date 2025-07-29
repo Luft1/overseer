@@ -1,7 +1,7 @@
 #pragma once
 #include <lvgl.h>
 #include <eventpp/hetereventdispatcher.h>
-#include "Events.h"
+//TODO: use a simple callback function pointer instead of eventpp
 
 enum class SplitKeyboardState {
     Left,

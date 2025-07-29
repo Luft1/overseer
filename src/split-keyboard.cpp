@@ -1,7 +1,6 @@
 #include "split-keyboard.h"
 #include "lv-utility.h"
-
-// Event handler for swap buttons
+//TODO: use a simple callback function pointer instead of eventpp
 
 void SplitKeyboard::Toggle() {
     if (currentState == SplitKeyboardState::Hidden) {
