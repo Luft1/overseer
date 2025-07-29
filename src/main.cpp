@@ -2,6 +2,7 @@
 
 Main::Main() {
 
+    keyboard = new SplitKeyboard();
     Serial.begin(115200);
 
     instance.begin();
