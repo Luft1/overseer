@@ -11,3 +11,13 @@ void ToggleVisibility(lv_obj_t *obj)
         lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN); 
     }
 }
+
+void HideObject(lv_obj_t *obj)
+{
+    lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
+};
+
+void ShowObject(lv_obj_t *obj)
+{
+    lv_obj_clear_flag(obj, LV_OBJ_FLAG_HIDDEN);
+};

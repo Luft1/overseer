@@ -9,4 +9,8 @@ public:
     void loop();
 private:
 SplitKeyboard * keyboard;
+lv_obj_t * textBox;
+lv_obj_t * toggleKeyboardButton;
+void handleKeyPress(char);
+
 };
